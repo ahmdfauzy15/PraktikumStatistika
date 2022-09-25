@@ -1,0 +1,47 @@
+a <- c(1,2,-5,0.3,6,-2,4) 
+b <- c("one","two","three") 
+c <- c(TRUE,TRUE,TRUE,FALSE,TRUE) 
+print(a)
+print(b)
+print(c)
+
+#MATRIKS
+cells <- c(3,15,-27,38)
+r_Ahmad <- c("R1", "R2")
+c_Ahmad <- c("C1", "C2") 
+Ahmad_matrix <- matrix(cells, nrow=2, ncol=2, byrow=TRUE,
+                      dimnames=list(r_Ahmad, c_Ahmad))
+print(Ahmad_matrix)
+
+
+Made <- c(1,2,3,4)
+Rido <- c("red", "white", "red", NA)
+Amad <- c(TRUE,TRUE,TRUE,FALSE)
+databaru <- data.frame(Made, Rido, Amad)
+names(databaru) <- c("ID","Color","Passed") 
+print(databaru)
+
+
+data_Ahmad <- data.frame(id = letters[1:10], x = 1:10, y = 11:20)
+print (data_Ahmad)
+
+library(RMySQL)
+con = dbConnect(MySQL(), user = 'root', password = '', dbname = 'houseprices', host = 'localhost')
+dbListTables(con) 
+myQuery <- "select * from ahmad___houseprices_csv;"
+df <- dbGetQuery(con, myQuery)
+
+library(dplyr)
+df<-filter(df,Brick=="No")
+print(df)
+
+library(dplyr)
+df<-filter(df,Brick=="No"|Neighborhood=="East")
+print(df)
+
+library(RMySQL)
+con = dbConnect(MySQL(), user = 'root', password = '', dbname = 'houseprices', host = 'localhost')
+dbListTables(con) 
+myQuery <- "select * data_achmadcsv;"
+df <- dbGetQuery(con, myQuery)
+
